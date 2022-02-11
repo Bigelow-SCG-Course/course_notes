@@ -1,0 +1,9 @@
+## biopy kernel
+
+conda create -n biopy python=3.10
+conda activate biopy
+conda install ipykernel
+python -m ipykernel install --user --name biopy --display-name biopy 
+
+conda install -c conda-forge biopython
+conda install pandas numpy
