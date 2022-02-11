@@ -11,7 +11,7 @@ If we want specific SAGs from these assemblies, we can run a search for them.  F
 'AG-910* AND PRJEB33281'
 
 ### Downloading a sra fastq file, and subsampling:  
-# this one subsamples 300000 reads  
+this one subsamples 300000 reads  
 ```
 fastq-dump --split-files --skip-technical -N 0 -X 300000 --gzip --readids SRR6507279
 ```
