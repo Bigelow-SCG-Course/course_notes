@@ -1,0 +1,14 @@
+## gorg-classifier installation
+
+curl -s https://get.nextflow.io | bash
+
+## running gorg-classifier
+
+nextflow run BigelowLab/gorg-classifier -profile docker --seqs 'data/metagenomes/SRR*1.fastq.gz' --cpus 8 
+
+
+# preparing paired read files for the classifier
+for FILE in *.fastq.gz; 
+do 
+zcat $FILE | python ~/repos/Day3PM_gorg-classifier/scripts/update_names.py | gzip > ../subsampled_metagenomes_corrected/$FILE
+done

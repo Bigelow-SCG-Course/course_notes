@@ -3,7 +3,28 @@
 conda create -n biopy python=3.10
 conda activate biopy
 conda install ipykernel
-python -m ipykernel install --user --name biopy --display-name biopy 
+python -m ipykernel install --name biopy --display-name biopy 
 
 conda install -c conda-forge biopython
 conda install pandas numpy
+conda install seaborn
+
+## coverm
+conda env create --file coverm_env.yml --name coverm
+conda install ipykernel
+python -m ipykernel install --name coverm --display-name coverm 
+
+conda env create --file dram_cfe.yml --name DRAM
+
+
+conda activate DRAM
+DRAM-setup.py prepare_databases --skip_uniref --output_dir dram_data2
+
+
+Adding users to docker group:
+
+as root:
+
+$ for ID in $(cat /etc/passwd | grep jupyter | cut -d ':' -f1); \
+do (adduser $ID docker);done
+
